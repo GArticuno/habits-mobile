@@ -5,6 +5,8 @@ export declare global {
       new_habit: undefined;
       habit: {
         date: string;
+        amount?: number;
+        completed?: number; 
       }
     }
   }

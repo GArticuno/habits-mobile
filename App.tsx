@@ -1,6 +1,7 @@
 import "./src/lib/dayjs";
 
 import { StatusBar } from "expo-status-bar";
+import { ToastProvider } from "react-native-toast-notifications";
 import {
   useFonts,
   Inter_400Regular,
@@ -25,9 +26,9 @@ export default function App() {
   };
 
   return (
-    <>
+    <ToastProvider>
       <Routes />
       <StatusBar style="light" backgroundColor="transparent" translucent />
-    </>
+    </ToastProvider>
   );
 }

@@ -1,4 +1,4 @@
-export const avaliableWeekDays = [
+export const availableWeekDays = [
   "Domingo",
   "Segunda-feira",
   "Terça-feira",

@@ -12,7 +12,7 @@ const Habit = () => {
   const route = useRoute();
   const { date } = route.params as HabitParamProps;
 
-  const parsedDate = dayjs(date); 
+  const parsedDate = dayjs(date);
   const dayOfWeek = parsedDate.format("dddd");
   const dayAndMonth = parsedDate.format("DD/MM");
 
