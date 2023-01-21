@@ -3,6 +3,8 @@ import { Feather } from "@expo/vector-icons";
 import colors from "tailwindcss/colors";
 
 import { CheckBoxProps } from "./types";
+import clsx from "clsx";
+import Animated, { RotateInUpLeft, RotateOutUpLeft } from "react-native-reanimated";
 
 const CheckBox = ({ title, checked = false, ...rest }: CheckBoxProps) => {
   return (
@@ -12,9 +14,13 @@ const CheckBox = ({ title, checked = false, ...rest }: CheckBoxProps) => {
       {...rest}
     >
       {checked ? (
-        <View className="h-8 w-8 bg-green-500 rounded-lg items-center justify-center">
+        <Animated.View
+          className="h-8 w-8 bg-green-500 rounded-lg items-center justify-center"
+          entering={RotateInUpLeft}
+          exiting={RotateOutUpLeft}
+        >
           <Feather name="check" size={20} color={colors.white} />
-        </View>
+        </Animated.View>
       ) : (
         <View className="h-8 w-8 bg-zinc-900 rounded-lg" />
       )}

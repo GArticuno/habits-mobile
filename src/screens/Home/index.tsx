@@ -1,6 +1,6 @@
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import dayjs from "dayjs";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ScrollView, Text, View, Alert } from "react-native";
 import { useToast } from "react-native-toast-notifications";
 
@@ -35,9 +35,10 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     handleGetSummary();
-  }, []);
+  }, []));
+
 
   if(isLoading) {
     return (
@@ -74,6 +75,8 @@ const Home = () => {
               <HabitDay
                 date={date}
                 key={date.toISOString()}
+                amount={dayInSummary?.amount}
+                completed={dayInSummary?.completed}
                 onPress={() => navigate('habit', {
                   date: date.toISOString(),
                 })}
